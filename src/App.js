@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import AllCmp from './Components/AllCmp';
+import {
+  Route,
+  Routes,
+  Redirect,
+} from 'react-router-dom';
+import Navbar from './Components/NavbarLeft';
+import Search from './Components/Search';
+import Error from './Components/Error';
+import Library from './Components/Library';
+import YourLibrary from './Components/YourLibrary';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=''>
+      <Routes>
+        <Route path='/' element={<AllCmp />}>
+        </Route>
+        <Route path='/Search' element={<Search />} />
+        <Route path='/YourLibrary' element={<YourLibrary />} />
+        <Route path='*' element={<Error />}></Route>
+      </Routes>
     </div>
   );
 }
